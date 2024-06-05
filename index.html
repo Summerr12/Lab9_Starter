@@ -118,7 +118,7 @@
       let operator = document.querySelector('#operator').value;
       //step 3
       try{
-        if(isNan(firstNum) || isNaN(secondNum)){
+        if(isNaN(firstNum) || isNaN(secondNum)){
           throw new Error('not a num');
         }
         output.innerHTML = eval(`${firstNum} ${operator} ${secondNum}`);
