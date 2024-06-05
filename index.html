@@ -96,10 +96,11 @@
       // for more configuration options, see https://docs.trackjs.com
     });
   </script>
+  
+
+
 
   <script src="func.js">
-
-
 
     class CustomError extends Error {
       constructor(message) {
@@ -107,7 +108,6 @@
         this.name = 'CustomERROR';
       }
     }
-
 
     let form = document.querySelector('form');
     form.addEventListener('submit', e => {
