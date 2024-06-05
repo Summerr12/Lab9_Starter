@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    //step 2
     document.getElementById('log').addEventListener('click',()=>{
         console.log("Console Log Demo");
     });
@@ -19,34 +20,33 @@ document.addEventListener('DOMContentLoaded', () => {
         console.clear();
     });
     document.getElementById('dir').addEventListener('click',()=>{
-        console.dir(document.body);
-        // break;
-        
+        console.dir(document.body);        
     });
     document.getElementById('dirxml').addEventListener('click',()=>{
-        console.count('Count');
+        console.dirxml(document);
     });
     document.getElementById('start').addEventListener('click',()=>{
-        console.count('Count');
+        console.group('Console Group');
     });
     document.getElementById('end').addEventListener('click',()=>{
-        console.count('Count');
+        console.groupEnd();
     });
     document.getElementById('table').addEventListener('click',()=>{
-        console.count('Count');
+        console.table([{ name: 'CSE', num: '110' }, { name: 'CSE', num: '101' }]);
     });
     document.getElementById('startTimer').addEventListener('click',()=>{
-        console.count('Count');
+        console.time('Timer');
     });
     document.getElementById('endTimer').addEventListener('click',()=>{
-        console.count('Count');
+        console.timeEnd('Timer');
     });
     document.getElementById('trace').addEventListener('click',()=>{
-        console.count('Count');
+        console.trace('trace');
     });
     document.getElementById('globalError').addEventListener('click',()=>{
-        console.count('Count');
+        let nonExistent = document.querySelector('#no-exist');
+        nonExistent.click();
     });
-
+    
 
 })

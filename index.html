@@ -87,7 +87,28 @@
     </section>
   </main>
 
+
+  <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+  <script>
+    window.TrackJS && TrackJS.install({ 
+      token: "d3749814ea4d442b8da551d0f8cd0f10",
+      application: "lab9"
+      // for more configuration options, see https://docs.trackjs.com
+    });
+  </script>
+
   <script src="func.js">
+
+
+
+    class CustomError extends Error {
+      constructor(message) {
+        super(message);
+        this.name = 'CustomERROR';
+      }
+    }
+
+
     let form = document.querySelector('form');
     form.addEventListener('submit', e => {
       e.preventDefault();
@@ -95,7 +116,26 @@
       let firstNum = document.querySelector('#first-num').value;
       let secondNum = document.querySelector('#second-num').value;
       let operator = document.querySelector('#operator').value;
-      output.innerHTML = eval(`${firstNum} ${operator} ${secondNum}`);
+      //step 3
+      try{
+        if(isNan(firstNum) || isNaN(secondNum)){
+          throw new Error('not a num');
+        }
+        output.innerHTML = eval(`${firstNum} ${operator} ${secondNum}`);
+      }catch (error) {
+        console.error(error);
+
+        if(error instanceof SyntaxError) {
+          throw new CustomError('WRONG')
+        }
+
+        if (window.TrackJS) {
+          TrackJS.track(error);
+        }
+
+      }finally {
+        console.log('the try runs');
+      }
     });
 
     let errorBtns = Array.from(document.querySelectorAll('#error-btns > button'));
