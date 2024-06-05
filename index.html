@@ -73,7 +73,7 @@
       <button id="error">Console Error</button>
       <button id="count">Console Count</button>
       <button id="warn">Console Warn</button>
-      <!-- <button id="assert">Console Assert</button>
+      <button id="assert">Console Assert</button>
       <button id="clear">Console Clear</button>
       <button id="dir">Console Dir</button>
       <button id="dirxml">Console dirxml</button>
@@ -83,11 +83,11 @@
       <button id="startTimer">Start Timer</button>
       <button id="endTimer">End Timer</button>
       <button id="trace">Console Trace</button>
-      <button id="globalError">Trigger a Global Error</button> -->
+      <button id="globalError">Trigger a Global Error</button>
     </section>
   </main>
 
-  <script>
+  <script src="func.js">
     let form = document.querySelector('form');
     form.addEventListener('submit', e => {
       e.preventDefault();
@@ -102,11 +102,6 @@
 
     // Start your code here
     // You may move this JS to another file if you wish
-
-    const logE = document.getElementById('log');
-    logE.addEventListener('click',()=>{
-      console.log("Console Log Demo");
-    });
 
 
   </script>
